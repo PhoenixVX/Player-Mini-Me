@@ -23,23 +23,33 @@ public class HudMixin {
     @Shadow
     @Final
     private MinecraftClient client;
+    private static long lastActivityTime;
 
     @Inject(method="render", at=@At("RETURN"))
     public void render(MatrixStack matrices, float f, CallbackInfo ci) {
 
-        // Don't draw if the F3 screen is open
+        // Don't draw if the F3 screen is open or hud is hidden
         if (this.client.options.debugEnabled || this.client.options.hudHidden) {
             return;
         }
 
         Config config = PaperDoll.config;
         ClientPlayerEntity player = this.client.player;
-        
-        // Don't render if it's set to only activity
-        if (!(!config.only_activity || player.isSneaking() || player.isSprinting() || player.isSwimming() || player.handSwinging || player.isFallFlying())) {
+
+        if(player == null)
             return;
+
+        if (config.only_activity) {
+
+            if(player.isSneaking() || player.isSprinting() || player.isSwimming() || player.handSwinging || player.isFallFlying()) {
+                lastActivityTime = System.currentTimeMillis();
+            } else if(System.currentTimeMillis() - lastActivityTime > config.activity_millis) {
+                // Don't render if it's set to only activity and the activity time is over.
+                return;
+            }
         }
-        
+
+
         EntityRenderDispatcher entityRenderDispatcher = this.client.getEntityRenderDispatcher();
         MatrixStack matrixStack = new MatrixStack();
         

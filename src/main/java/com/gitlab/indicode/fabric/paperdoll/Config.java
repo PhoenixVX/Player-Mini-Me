@@ -15,4 +15,5 @@ public class Config implements ConfigData {
     public boolean change_swim_fly = true;
     public boolean dynamic_scale = false;
     public boolean only_activity = false;
+    public long activity_millis = 0;
 }

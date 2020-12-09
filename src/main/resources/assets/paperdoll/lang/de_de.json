@@ -1,0 +1,14 @@
+{
+  "text.autoconfig.paperdoll.title": "Papierpuppe",
+  "text.autoconfig.paperdoll.category.default": "Einstellungen",
+  "text.autoconfig.paperdoll.option.render_height": "Höhe der Puppe",
+  "text.autoconfig.paperdoll.option.render_width": "Breite der Puppe",
+  "text.autoconfig.paperdoll.option.rotation": "Y Rotation der Puppe",
+  "text.autoconfig.paperdoll.option.dynamic_scale": "Dynamische Skalierung",
+  "text.autoconfig.paperdoll.option.x": "X Position",
+  "text.autoconfig.paperdoll.option.y": "Y Position",
+  "text.autoconfig.paperdoll.option.only_activity": "Nur Anzeigen, wenn der Spieler aktiv ist(MCPE Style)",
+  "text.autoconfig.paperdoll.option.change_swim_fly": "Puppe verschieben, während dem Schwimmen oder Fliegen",
+  "text.autoconfig.paperdoll.option.activity_millis": "Die Anzahl an Millisekunden, in denen die Puppe aktiv bleiben soll."
+
+}
